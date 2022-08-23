@@ -1,0 +1,22 @@
+<div *ngIf="isOrdersLoaded && isUserDataLoaded" class="index-page">
+    <mat-card class="order-card" *ngFor="let order of orders; let i = index">
+        <mat-card-header style="text-align: left">
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{order.code}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-subtitle align="start">Order by {{order.username}}</mat-card-subtitle>
+        <mat-card-content>
+            <p>{{order.caption}}</p>
+        </mat-card-content>
+
+        <div style="text-align: left">
+            <p *ngFor="let product of order.products"><span style="font-weight: 500">{{product.username}}</span>:{{product.message}}</p>
+        </div>
+
+<!--        <mat-form-field class="w-100">-->
+<!--            <mat-label>Leave a comment...</mat-label>-->
+<!--            <input (keyup.enter)="orderProduct($event.target.value, order.id, i)" mat-input #message maxlength="128">-->
+<!--            <mat-hint alidgn="end">{{message.value.length}} / 128</mat-hint>-->
+<!--        </mat-form-field>-->
+    </mat-card>
+</div>
